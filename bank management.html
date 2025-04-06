@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Management System in C</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        pre {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bank Management System in C</h1>
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct {
+    int account_no;
+    char name[50];
+    float balance;
+    char password[20];
+} Account;
+
+void account();          
+void transfermoney();    
+void checkbalance();     
+Account* login();        
+
+int main() {
+    int choice;
+    while(1) {
+        printf("\n--- Bank Management System ---\n");
+        printf("1. Create Account\n");
+        printf("2. Transfer Money\n");
+        printf("3. Check Balance\n");
+        printf("4. Login\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                account();
+                break;
+            case 2:
+                transfermoney();
+                break;
+            case 3:
+                checkbalance();
+                break;
+            case 4: {
+                Account *acc = login();
+                if(acc != NULL) {
+                    printf("Welcome, %s!\n", acc->name);
+                }
+                break;
+            }
+            case 5:
+                printf("Exiting...\n");
+                exit(0);
+            default:
+                printf("Invalid Choice. Please try again.\n");
+        }
+    }
+    return 0;
+}
+
+// Functions...
+
+    </pre>
+</body>
+</html>
